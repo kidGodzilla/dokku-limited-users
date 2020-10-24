@@ -33,6 +33,16 @@ SSH_NAME=$2
 # Allow users to set config
 [[ "$SSH_USER" == "dokku" && $3 == config* ]] && exit 0
 
+# Prevent execution of global domain commands
+[[ "$SSH_USER" == "dokku" && $3 == domains:add-global ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == domains:clear-global ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == domains:remove-global ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == domains:set-global ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == domains:enable ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == domains:disable ]] && exit 1
+
+# Allow all other domain commands
+[[ "$SSH_USER" == "dokku" && $3 == domains:* ]] && exit 0
 
 
 ##############################
