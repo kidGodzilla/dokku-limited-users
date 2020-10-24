@@ -4,6 +4,7 @@
 # Allow access for deployment
 
 source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
+source "$PLUGIN_CORE_AVAILABLE_PATH/config/functions"
 
 set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
@@ -12,7 +13,7 @@ SSH_USER=$1
 SSH_NAME=$2
 # shift 2
 
-ALLOWED_USERS = dokku config:get DOKKU_ALLOWED_USERS
+ALLOWED_USERS = config_get("DOKKU_ALLOWED_USERS")
 
 echo "$DOKKU_ALLOWED_USERS $ALLOWED_USERS"
 
