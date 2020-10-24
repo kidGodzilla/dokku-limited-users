@@ -11,8 +11,8 @@ SSH_USER=$1
 SSH_NAME=$2
 # shift 2
 
-# echo "Command: $1"
-# echo "$1"
+# echo "Command: $3"
+# echo "$3"
 # echo "$SSH_NAME"
 
 [[ "$SSH_USER" == "root" ]] && exit 0
@@ -22,11 +22,11 @@ SSH_NAME=$2
 [[ "$SSH_NAME" == "default" ]] && exit 1
 
 # Allow Deploys
-[[ "$SSH_USER" == "dokku" && $1 == git* ]] && exit 1
-[[ "$SSH_USER" == "dokku" && $1 == git-hook ]] && exit 1
-[[ "$SSH_USER" == "dokku" && $1 == git-upload-pack ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == git* ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == git-hook ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == git-upload-pack ]] && exit 1
 
-# echo "$1"
+# echo "$3"
 
 # echo "Limited users may only deploy and manage their own apps."
 
