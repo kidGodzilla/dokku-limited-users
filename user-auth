@@ -22,6 +22,8 @@ shift 2
 
 # Allow Deploys
 [[ "$SSH_USER" == "dokku" && $1 == git* ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $1 == git-hook ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $1 == git-upload-pack ]] && exit 1
 
 echo "$1"
 
