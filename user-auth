@@ -30,7 +30,7 @@ if ([[ $DOKKU_APP_NAME ]])
     # echo "$ALLOWED_USERS"
 
     # If we have an app name and user make sure its a whitelisted user
-    [[ "$DOKKU_APP_NAME" != "" ]] && [[ ! $ALLOWED_USERS =~ $SSH_NAME ]] && exit 1
+    [[ ! $ALLOWED_USERS =~ $SSH_NAME ]] && exit 1
 fi
 
 # Prevent certain flags from being passed to any command
