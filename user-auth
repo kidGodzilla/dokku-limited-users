@@ -8,13 +8,12 @@ source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
 set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
 # Debug
-# echo "Verifying user authorization for: $SSH_USER | $SSH_NAME for command $3"
-
 SSH_USER=$1
 SSH_NAME=$2
 # shift 2
 
-echo "$1 $2 $3 $4 $5 $DOKKU_APP_NAME"
+# echo "Verifying user authorization for: $SSH_USER | $SSH_NAME for command $3"
+# echo "$1 $2 $3 $4 $5 $DOKKU_APP_NAME"
 
 # Root and admin users have full access
 [[ "$SSH_USER" == "root" ]] && exit 0
