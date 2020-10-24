@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 # Allow root/admin users to do everything
-# Deny plugin access to default users
-# Allow access to all other commands
+# Deny access to default users
+# Allow access for deployment
 
 set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
-echo "Verifying user authorization for: $SSH_USER | $SSH_NAME"
+# echo "Verifying user authorization for: $SSH_USER | $SSH_NAME"
 
 SSH_USER=$1
 SSH_NAME=$2
 shift 2
 
-echo "Command: $1"
+# echo "Command: $1"
+echo "$1"
 
 [[ "$SSH_USER" == "root" ]] && exit 0
 # [[ "$SSH_NAME" == "admin" ]] && exit 0
