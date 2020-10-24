@@ -44,6 +44,13 @@ SSH_NAME=$2
 # Allow all other domain commands
 [[ "$SSH_USER" == "dokku" && $3 == domains:* ]] && exit 0
 
+# Allow App start / stop / restarts / restart policy / report
+[[ "$SSH_USER" == "dokku" && $3 == ps:report ]] && exit 0
+[[ "$SSH_USER" == "dokku" && $3 == ps:restart ]] && exit 0
+[[ "$SSH_USER" == "dokku" && $3 == ps:start ]] && exit 0
+[[ "$SSH_USER" == "dokku" && $3 == ps:stop ]] && exit 0
+[[ "$SSH_USER" == "dokku" && $3 == ps:set-restart-policy ]] && exit 0
+
 
 ##############################
 # Exit, prohibiting all other commands
