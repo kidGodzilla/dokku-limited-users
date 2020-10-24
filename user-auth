@@ -13,12 +13,12 @@ shift 2
 
 # echo "Command: $1"
 # echo "$1"
-echo "$SSH_USER"
+echo "$SSH_NAME"
 
 [[ "$SSH_USER" == "root" ]] && exit 0
 [[ "$SSH_NAME" == "admin" ]] && exit 0
 
-[[ "$SSH_USER" == "dokku" ]] && exit 1
+# [[ "$SSH_USER" == "dokku" ]] && exit 1
 [[ "$SSH_NAME" == "default" ]] && exit 1
 
 # Allow Deploys
