@@ -15,7 +15,7 @@ SSH_NAME=$2
 # echo "$3"
 # echo "$SSH_NAME"
 
-[[ "$SSH_USER" == "dokku" ]] && exit 0
+# [[ "$SSH_USER" == "dokku" ]] && exit 0
 
 [[ "$SSH_USER" == "root" ]] && exit 0
 [[ "$SSH_NAME" == "admin" ]] && exit 0
@@ -24,9 +24,9 @@ SSH_NAME=$2
 [[ "$SSH_NAME" == "default" ]] && exit 1
 
 # Allow Deploys
-[[ "$SSH_USER" == "dokku" && $3 == git* ]] && exit 1
-[[ "$SSH_USER" == "dokku" && $3 == git-hook ]] && exit 1
-[[ "$SSH_USER" == "dokku" && $3 == git-upload-pack ]] && exit 1
+[[ "$SSH_USER" == "dokku" && $3 == git* ]] && exit 0
+[[ "$SSH_USER" == "dokku" && $3 == git-hook ]] && exit 0
+[[ "$SSH_USER" == "dokku" && $3 == git-upload-pack ]] && exit 0
 
 echo "$3"
 
