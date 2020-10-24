@@ -27,4 +27,5 @@ SSH_NAME=$2
 # echo "$3"
 echo "Limited users may only deploy and manage their own apps."
 
+# Prohibit all other commands
 exit 1
