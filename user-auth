@@ -9,7 +9,7 @@ set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
 SSH_USER=$1
 SSH_NAME=$2
-shift 2
+# shift 2
 
 # echo "Command: $1"
 # echo "$1"
@@ -26,7 +26,7 @@ shift 2
 [[ "$SSH_USER" == "dokku" && $1 == git-hook ]] && exit 1
 [[ "$SSH_USER" == "dokku" && $1 == git-upload-pack ]] && exit 1
 
-echo "$1"
+# echo "$1"
 
 # echo "Limited users may only deploy and manage their own apps."
 
