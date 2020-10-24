@@ -12,11 +12,14 @@ SSH_USER=$1
 SSH_NAME=$2
 # shift 2
 
+# Root and admin users have full access
 [[ "$SSH_USER" == "root" ]] && exit 0
 [[ "$SSH_NAME" == "admin" ]] && exit 0
+
+# Default users can do nothing
 [[ "$SSH_NAME" == "default" ]] && exit 1
 
-# Allow Deploys
+# Allow Deploys from dokku user
 [[ "$SSH_USER" == "dokku" && $3 == git* ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == git-hook ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == git-upload-pack ]] && exit 0
