@@ -50,10 +50,12 @@ SSH_NAME=$2
 
 # Allow App start / stop / restarts / restart policy / report
 [[ "$SSH_USER" == "dokku" && $3 == ps:report ]] && exit 0
+[[ "$SSH_USER" == "dokku" && $3 == ps:rebuild ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == ps:restart ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == ps:start ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == ps:stop ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == ps:set-restart-policy ]] && exit 0
+[[ "$SSH_USER" == "dokku" && $3 == ps:restart-policy ]] && exit 0
 
 # Allow certs commands
 [[ "$SSH_USER" == "dokku" && $3 == certs:* ]] && exit 0
@@ -84,12 +86,23 @@ if ([[ "$SSH_USER" == "dokku" && $3 == "" ]])
     echo "    dokku config:set [--encoded] [--no-restart]  KEY1=VALUE1 [KEY2=VALUE2 ...]  Set one or more config vars"
     echo "    dokku config:unset [--no-restart]  KEY1 [KEY2 ...]                          Unset one or more config vars"
     echo " "
-    echo "    domains:add <domain> [<domain> ...]           Add domain(s) to app"
-    echo "    domains:clear                                 Clear all domains for app"
-    echo "    domains:remove <domain> [<domain> ...]        Remove domains from app"
-    echo "    domains:report                                Displays a domains report for your current app"
-    echo "    domains:set <app> <domain> [<domain> ...]     Set domains for app"
+    echo "    dokku domains:add <domain> [<domain> ...]           Add domain(s) to app"
+    echo "    dokku domains:clear                                 Clear all domains for app"
+    echo "    dokku domains:remove <domain> [<domain> ...]        Remove domains from app"
+    echo "    dokku domains:report                                Displays a domains report for your current app"
+    echo "    dokku domains:set <app> <domain> [<domain> ...]     Set domains for app"
     echo " "
+    echo "    dokku ps:rebuild                          Rebuild an app from source"
+    echo "    dokku ps:report                           Displays a process report for the current app"
+    echo "    dokku ps:restart                          Restart app container"
+    echo "    dokku ps:restart-policy                   Shows the restart-policy for the current app"
+    echo "    dokku ps:set-restart-policy <policy>      Sets app restart-policy"
+    echo "    dokku ps:start                            Start app container"
+    echo "    dokku ps:stop                             Stop app container"
+    echo " "
+    echo "    dokku resource:report                     Displays a resource report for the current app"
+    echo " "
+    echo "    dokku letsencrypt                         Enables SSL via Let's Encrypt"
 
     echo " "
     echo " "
