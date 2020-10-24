@@ -51,6 +51,9 @@ SSH_NAME=$2
 [[ "$SSH_USER" == "dokku" && $3 == ps:stop ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == ps:set-restart-policy ]] && exit 0
 
+# Allow certs commands
+[[ "$SSH_USER" == "dokku" && $3 == certs:* ]] && exit 0
+
 # Allow let's encrypt
 [[ "$SSH_USER" == "dokku" && $3 == letsencrypt ]] && exit 0
 
