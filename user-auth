@@ -16,7 +16,7 @@ SSH_NAME=$2
 # echo "$SSH_NAME"
 
 [[ "$SSH_USER" == "root" ]] && exit 0
-[[ "$SSH_NAME" == "admin" ]] && exit 0
+[[ "$SSH_NAME" == "admin" ]] && exit 1
 
 # [[ "$SSH_USER" == "dokku" ]] && exit 1
 [[ "$SSH_NAME" == "default" ]] && exit 1
