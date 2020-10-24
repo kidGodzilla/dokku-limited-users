@@ -27,8 +27,12 @@ SSH_NAME=$2
 # Allow dokku logs
 [[ "$SSH_USER" == "dokku" && $3 == logs ]] && exit 0
 
-# Prevent --global from being passed to any command
+# Prevent certain flags from being passed to any command
+[[ $* == *--rm-container* ]] && exit 1
 [[ $* == *--global* ]] && exit 1
+[[ $* == *--trace* ]] && exit 1
+[[ $* == *--force* ]] && exit 1
+[[ $* == *--rm* ]] && exit 1
 
 # Allow users to set config
 [[ "$SSH_USER" == "dokku" && $3 == config* ]] && exit 0
@@ -59,6 +63,8 @@ SSH_NAME=$2
 
 # Allow resource report resource:report
 [[ "$SSH_USER" == "dokku" && $3 == resource:report ]] && exit 0
+
+
 
 
 ##############################
