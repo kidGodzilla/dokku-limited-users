@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Allow root/admin users to do everything
 # Deny access to default users
-# Allow access for deployment
+# Allow access for dokku user to perform specific actions if whitelisted
 
 # source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
 source "$PLUGIN_AVAILABLE_PATH/config/functions"
