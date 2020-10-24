@@ -24,6 +24,9 @@ SSH_NAME=$2
 [[ "$SSH_USER" == "dokku" && $3 == git-hook ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == git-upload-pack ]] && exit 0
 
+# Allow dokku logs
+[[ "$SSH_USER" == "dokku" && $3 == logs ]] && exit 0
+
 # echo "$3"
 # echo "Limited users may only deploy and manage their own apps."
 
