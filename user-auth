@@ -14,4 +14,7 @@ shift 2
 [[ "$SSH_NAME" == "admin" ]] && exit 0
 # [[ "$SSH_NAME" == "default" && $1 == plugin:* ]] && exit 1
 [[ "$SSH_NAME" == "default" ]] && exit 1
+
+echo "Access denied. Limited users may only deploy and manage their own apps."
+
 exit 1
