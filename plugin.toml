@@ -1,4 +1,4 @@
 [plugin]
 description = "dokku limited users plugin"
-version = "0.11.0"
+version = "0.11.2"
 [plugin.config]
