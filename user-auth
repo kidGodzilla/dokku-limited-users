@@ -57,6 +57,9 @@ SSH_NAME=$2
 # Allow let's encrypt
 [[ "$SSH_USER" == "dokku" && $3 == letsencrypt ]] && exit 0
 
+# Allow resource report resource:report
+[[ "$SSH_USER" == "dokku" && $3 == resource:report ]] && exit 0
+
 
 ##############################
 # Exit, prohibiting all other commands
