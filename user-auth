@@ -76,13 +76,13 @@ if ([[ "$SSH_USER" == "dokku" && $3 == "" ]])
     echo "    dokku logs    See the latest logs for the current app"
     echo "    dokku logs    "
     echo " "
-    echo "    config                                                                Pretty-print an app or global environment"
-    echo "    config:clear [--no-restart]                                           Clears environment variables"
-    echo "    config:get [--quoted] KEY                                             Display a global or app-specific config value"
-    echo "    config:keys [--merged]                                                Show keys set in environment"
-    echo "    config:show [--merged]                                                Show keys set in environment"
-    echo "    config:set [--encoded] [--no-restart]  KEY1=VALUE1 [KEY2=VALUE2 ...]  Set one or more config vars"
-    echo "    config:unset [--no-restart]  KEY1 [KEY2 ...]                          Unset one or more config vars"
+    echo "    dokku config                                                                Pretty-print an app or global environment"
+    echo "    dokku config:clear [--no-restart]                                           Clears environment variables"
+    echo "    dokku config:get [--quoted] KEY                                             Display a global or app-specific config value"
+    echo "    dokku config:keys [--merged]                                                Show keys set in environment"
+    echo "    dokku config:show [--merged]                                                Show keys set in environment"
+    echo "    dokku config:set [--encoded] [--no-restart]  KEY1=VALUE1 [KEY2=VALUE2 ...]  Set one or more config vars"
+    echo "    dokku config:unset [--no-restart]  KEY1 [KEY2 ...]                          Unset one or more config vars"
 
 fi
 
