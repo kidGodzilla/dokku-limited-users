@@ -69,12 +69,12 @@ SSH_NAME=$2
 if ([[ "$SSH_USER" == "dokku" && $3 == "" ]])
   then
     echo " "
-    echo "--------------------------------------------------"
-    echo "Welcome! You are currently in a limited Dokku session. You can access the following commands:"
-    echo "--------------------------------------------------"
+    echo "------------------------------------------------------------"
+    echo "    Welcome! You are currently in a limited Dokku session"
+    echo "    You can access the following commands:"
+    echo "------------------------------------------------------------"
     echo " "
     echo "    dokku logs    See the latest logs for the current app"
-    echo "    dokku logs    "
     echo " "
     echo "    dokku config                                                                Pretty-print an app or global environment"
     echo "    dokku config:clear [--no-restart]                                           Clears environment variables"
@@ -83,7 +83,10 @@ if ([[ "$SSH_USER" == "dokku" && $3 == "" ]])
     echo "    dokku config:show [--merged]                                                Show keys set in environment"
     echo "    dokku config:set [--encoded] [--no-restart]  KEY1=VALUE1 [KEY2=VALUE2 ...]  Set one or more config vars"
     echo "    dokku config:unset [--no-restart]  KEY1 [KEY2 ...]                          Unset one or more config vars"
+    echo " "
 
+    echo " "
+    echo " "
 fi
 
 
