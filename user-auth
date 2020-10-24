@@ -10,5 +10,6 @@ SSH_NAME=$2
 shift 2
 [[ "$SSH_USER" == "root" ]] && exit 0
 [[ "$SSH_NAME" == "admin" ]] && exit 0
-[[ "$SSH_NAME" == "default" && $1 == plugin:* ]] && exit 1
+# [[ "$SSH_NAME" == "default" && $1 == plugin:* ]] && exit 1
+[[ "$SSH_NAME" == "default" ]] && exit 1
 exit 0
