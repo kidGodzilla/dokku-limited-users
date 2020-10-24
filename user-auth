@@ -12,7 +12,7 @@ SSH_USER=$1
 SSH_NAME=$2
 # shift 2
 
-echo "$1 $2 $3 $4 $5"
+echo "$@ $0 $1 $2 $3 $4 $5"
 
 # Root and admin users have full access
 [[ "$SSH_USER" == "root" ]] && exit 0
