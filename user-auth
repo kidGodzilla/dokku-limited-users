@@ -84,6 +84,12 @@ if ([[ "$SSH_USER" == "dokku" && $3 == "" ]])
     echo "    dokku config:set [--encoded] [--no-restart]  KEY1=VALUE1 [KEY2=VALUE2 ...]  Set one or more config vars"
     echo "    dokku config:unset [--no-restart]  KEY1 [KEY2 ...]                          Unset one or more config vars"
     echo " "
+    echo "    domains:add <domain> [<domain> ...]           Add domain(s) to app"
+    echo "    domains:clear                                 Clear all domains for app"
+    echo "    domains:remove <domain> [<domain> ...]        Remove domains from app"
+    echo "    domains:report                                Displays a domains report for your current app"
+    echo "    domains:set <app> <domain> [<domain> ...]     Set domains for app"
+    echo " "
 
     echo " "
     echo " "
