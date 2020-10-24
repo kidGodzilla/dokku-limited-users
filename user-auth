@@ -6,7 +6,7 @@
 set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
 # Debug
-echo "Verifying user authorization for: $SSH_USER | $SSH_NAME for command $3"
+# echo "Verifying user authorization for: $SSH_USER | $SSH_NAME for command $3"
 
 SSH_USER=$1
 SSH_NAME=$2
