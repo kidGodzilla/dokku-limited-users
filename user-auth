@@ -80,6 +80,7 @@ if ([[ "$SSH_USER" == "dokku" && $3 == "" ]])
     echo "    Deployments are completed by creating a Git remote, and "
     echo "    running 'git push dokku master' or 'git push dokku main:master'"
     echo " "
+    echo "    Full Command List:"
     echo " "
     echo "    dokku logs    See the latest logs for the current app"
     echo " "
