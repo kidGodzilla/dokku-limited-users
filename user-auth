@@ -70,7 +70,7 @@ if ([[ "$SSH_USER" == "dokku" && $3 == "" ]])
   then
     echo " "
     echo "--------------------------------------------------"
-    echo "Welcome! You are currently in a limited Dokku session. You may run any of the following commands:"
+    echo "Welcome! You are currently in a limited Dokku session. You can access the following commands:"
     echo "--------------------------------------------------"
     echo " "
     echo "    dokku logs    See the latest logs for the current app"
