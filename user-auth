@@ -13,7 +13,7 @@ shift 2
 
 # echo "Command: $1"
 # echo "$1"
-echo "$SSH_NAME"
+# echo "$SSH_NAME"
 
 [[ "$SSH_USER" == "root" ]] && exit 0
 [[ "$SSH_NAME" == "admin" ]] && exit 0
