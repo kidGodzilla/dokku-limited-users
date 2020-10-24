@@ -23,6 +23,7 @@ SSH_NAME=$2
 # Default users can do nothing
 [[ "$SSH_NAME" == "default" ]] && exit 1
 
+# Whitelist a specific set of users defined in the env DOKKU_ALLOWED_USERS
 if ([[ $DOKKU_APP_NAME ]])
   then
     ALLOWED_USERS=$(config_get $DOKKU_APP_NAME "DOKKU_ALLOWED_USERS")
