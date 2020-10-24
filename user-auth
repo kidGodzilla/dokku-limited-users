@@ -25,7 +25,7 @@ SSH_NAME=$2
 [[ "$SSH_USER" == "dokku" && $3 == git-upload-pack ]] && exit 0
 
 # echo "$3"
-echo "Limited users may only deploy and manage their own apps."
+# echo "Limited users may only deploy and manage their own apps."
 
 # Prohibit all other commands
 exit 1
