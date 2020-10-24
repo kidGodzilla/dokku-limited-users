@@ -3,8 +3,8 @@
 # Deny access to default users
 # Allow access for deployment
 
-source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
-source "$PLUGIN_CORE_AVAILABLE_PATH/config/functions"
+# source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
+source "$PLUGIN_AVAILABLE_PATH/config/functions"
 
 set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
@@ -12,10 +12,6 @@ set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 SSH_USER=$1
 SSH_NAME=$2
 # shift 2
-
-ALLOWED_USERS = config_get("DOKKU_ALLOWED_USERS")
-
-echo "$DOKKU_ALLOWED_USERS $ALLOWED_USERS"
 
 # echo "Verifying user authorization for: $SSH_USER | $SSH_NAME for command $3"
 # echo "$1 $2 $3 $4 $5 $DOKKU_APP_NAME"
@@ -26,6 +22,15 @@ echo "$DOKKU_ALLOWED_USERS $ALLOWED_USERS"
 
 # Default users can do nothing
 [[ "$SSH_NAME" == "default" ]] && exit 1
+
+if ([[ $DOKKU_APP_NAME ]])
+  then
+    ALLOWED_USERS=$(config_get $DOKKU_APP_NAME "DOKKU_ALLOWED_USERS")
+    # echo "$ALLOWED_USERS"
+
+    # If we have an app name and user make sure its a whitelisted user
+    [[ "$DOKKU_APP_NAME" != "" ]] && [[ ! $ALLOWED_USERS =~ $SSH_NAME ]] && exit 1
+fi
 
 # Prevent certain flags from being passed to any command
 [[ $* == *--rm-container* ]] && exit 1
