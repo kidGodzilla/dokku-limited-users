@@ -23,6 +23,8 @@ shift 2
 # Allow Deploys
 [[ "$SSH_USER" == "dokku" && $1 == git-* ]] && exit 1
 
-echo "Limited users may only deploy and manage their own apps."
+echo "$1"
+
+# echo "Limited users may only deploy and manage their own apps."
 
 exit 1
