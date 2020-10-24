@@ -5,11 +5,14 @@
 
 set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
-echo "Verifying user authorization for: $SSH_USER | $SSH_NAME for command $1"
+echo "Verifying user authorization for: $SSH_USER | $SSH_NAME"
 
 SSH_USER=$1
 SSH_NAME=$2
 shift 2
+
+echo "Command: $1"
+
 [[ "$SSH_USER" == "root" ]] && exit 0
 # [[ "$SSH_NAME" == "admin" ]] && exit 0
 
