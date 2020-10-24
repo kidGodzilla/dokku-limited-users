@@ -19,6 +19,13 @@ SSH_NAME=$2
 # Default users can do nothing
 [[ "$SSH_NAME" == "default" ]] && exit 1
 
+# Prevent certain flags from being passed to any command
+[[ $* == *--rm-container* ]] && exit 1
+[[ $* == *--global* ]] && exit 1
+[[ $* == *--trace* ]] && exit 1
+[[ $* == *--force* ]] && exit 1
+[[ $* == *--rm* ]] && exit 1
+
 # Allow Deploys from dokku user
 [[ "$SSH_USER" == "dokku" && $3 == git* ]] && exit 0
 [[ "$SSH_USER" == "dokku" && $3 == git-hook ]] && exit 0
@@ -26,13 +33,6 @@ SSH_NAME=$2
 
 # Allow dokku logs
 [[ "$SSH_USER" == "dokku" && $3 == logs ]] && exit 0
-
-# Prevent certain flags from being passed to any command
-[[ $* == *--rm-container* ]] && exit 1
-[[ $* == *--global* ]] && exit 1
-[[ $* == *--trace* ]] && exit 1
-[[ $* == *--force* ]] && exit 1
-[[ $* == *--rm* ]] && exit 1
 
 # Allow users to set config
 [[ "$SSH_USER" == "dokku" && $3 == config* ]] && exit 0
@@ -64,7 +64,24 @@ SSH_NAME=$2
 # Allow resource report resource:report
 [[ "$SSH_USER" == "dokku" && $3 == resource:report ]] && exit 0
 
+# Help Text
 
+if ([[ "$SSH_USER" == "dokku" && $3 == "" ]])
+  then
+    echo "Welcome! You are currently in a limited Dokku session. You may run any of the following commands:"
+    echo " "
+    echo "    dokku logs    See the latest logs for the current app"
+    echo "    dokku logs    "
+    echo " "
+    echo "    config                                                                Pretty-print an app or global environment"
+    echo "    config:clear [--no-restart]                                           Clears environment variables"
+    echo "    config:get [--quoted] KEY                                             Display a global or app-specific config value"
+    echo "    config:keys [--merged]                                                Show keys set in environment"
+    echo "    config:show [--merged]                                                Show keys set in environment"
+    echo "    config:set [--encoded] [--no-restart]  KEY1=VALUE1 [KEY2=VALUE2 ...]  Set one or more config vars"
+    echo "    config:unset [--no-restart]  KEY1 [KEY2 ...]                          Unset one or more config vars"
+
+fi
 
 
 ##############################
