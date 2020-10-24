@@ -5,7 +5,7 @@
 
 set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
-echo "Verifying user authorization for: $SSH_NAME"
+echo "Verifying user authorization for: $SSH_USER | $SSH_NAME"
 
 SSH_USER=$1
 SSH_NAME=$2
@@ -15,6 +15,6 @@ shift 2
 # [[ "$SSH_NAME" == "default" && $1 == plugin:* ]] && exit 1
 [[ "$SSH_NAME" == "default" ]] && exit 1
 
-echo "Access denied. Limited users may only deploy and manage their own apps."
+echo "Limited users may only deploy and manage their own apps."
 
 exit 1
