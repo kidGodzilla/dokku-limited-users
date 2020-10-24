@@ -3,6 +3,8 @@
 # Deny access to default users
 # Allow access for deployment
 
+source "$PLUGIN_CORE_AVAILABLE_PATH/common/functions"
+
 set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
 
 # Debug
