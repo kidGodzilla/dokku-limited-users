@@ -81,6 +81,9 @@ fi
 # Allow resource report resource:report
 [[ "$SSH_USER" == "dokku" && $3 == resource:report ]] && exit 0
 
+# Allow users to dokku enter
+[[ "$SSH_USER" == "dokku" && $3 == enter ]] && exit 0
+
 # Help Text
 
 if ([[ "$SSH_USER" == "dokku" && $3 == "" || $3 == "help" ]])
@@ -118,6 +121,7 @@ if ([[ "$SSH_USER" == "dokku" && $3 == "" || $3 == "help" ]])
     echo "    dokku ps:report                                     Displays a process report for the current app"
     echo "    dokku ps:restart-policy                             Shows the restart-policy for the current app"
     echo "    dokku ps:set-restart-policy <policy>                Sets app restart-policy"
+    echo "    dokku enter                                         Enter the docker container (Interactive)
     echo " "
     echo " "
     echo "------------------------------------------------------------------------------------------------------------------------"
