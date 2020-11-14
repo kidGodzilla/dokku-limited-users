@@ -19,6 +19,9 @@ SSH_NAME=$2
 # whoami
 [[ $3 == whoami ]] && echo "SSH User: $SSH_USER | SSH Name: $SSH_NAME" && exit 1
 
+# Allowed Users
+[[ $3 == allowedusers ]] && echo "Allowed users: $ALLOWED_USERS" && exit 1
+
 # Root and admin users have full access
 [[ "$SSH_USER" == "root" ]] && exit 0
 [[ "$SSH_NAME" == "admin" ]] && exit 0
