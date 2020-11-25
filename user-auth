@@ -22,6 +22,7 @@ SSH_NAME=$2
 # Root and admin users have full access
 [[ "$SSH_USER" == "root" ]] && exit 0
 [[ "$SSH_NAME" == "admin" ]] && exit 0
+[[ "$SSH_NAME" == "admin1" ]] && exit 0
 [[ "$SSH_NAME" == "ledokku" ]] && exit 0
 
 # Default users can do nothing
